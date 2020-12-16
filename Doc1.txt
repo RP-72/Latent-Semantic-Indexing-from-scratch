@@ -1,0 +1,2 @@
+SVD of a matrix helps us compress data. Jacobi, QR etc. are methods used for this.
+

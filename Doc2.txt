@@ -1,0 +1,1 @@
+We can add 2 matrices if their dimensions are same. It is not necessary that we can multiply them.

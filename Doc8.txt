@@ -1,0 +1,2 @@
+A QR code is a type of matrix barcode first designed in 1994 for the automotive industry in Japan. 
+QR codes are used by apps like PayTM and PhonePe to make payments faster.

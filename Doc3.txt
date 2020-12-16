@@ -1,0 +1,1 @@
+Solution space of a linear system can be found by reducing a matrix to its row reduced echelon form.
