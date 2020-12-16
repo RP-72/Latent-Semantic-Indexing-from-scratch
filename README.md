@@ -4,7 +4,7 @@
 
 It helps in finding out the documents which are most relative with the specified keyword. Similarly it also helps the search engines to give most appropriate results for the search query. LSI uses "Singular Value Decomposition" to do this.
 # Concepts used throughout the program
-#### Singular Value Decomposition (SVD)
+### Singular Value Decomposition (SVD):
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SVD breaks down an input matrix A (having dimensions m*n) into 3 parts:
 1. Orthogonal matrix U (Dimensions: m*m)
 2. Diagonal matrix S (Dimensions: m*n)
@@ -18,14 +18,14 @@ SVD is widely used to compress data. Its interpretation on text data can be done
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The matrix S is always a diagonal matrix with non-negative descending values, known as the **singular values**. Each non zero value represents **concepts**. There can't be more concepts than there are documents. The magnitude of the values describes how much variance each feature describes in the data. Interpretation of SV describes the **relationship between concepts and documents**. It is a set of column vectors and each eigenvector describes a concept. Components of each vector represent the weightage/contribution that each document has, in describing that particular concept. The matrix product VS describes the **relation between documents (VS's rows) and the features (VS's columns)**.
 
-#### Frobenius Norm
+### Frobenius Norm:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Frobenius norm of a matrix is nothing but the square root of the sum of squares of its elements. In the case of LSI, it is used to compare how different two matrices are. Let’s say that the matrices we want to compare are *A1* and *A2*. This can be done so by computing the Frobenius norm of *(A1 - A2)*  (**F1**). Then we compute the Frobenius norm of *A1* (**F2**). We divide both of them **F1/F2** and according to the answer we get, we can say how different those two matrices are. This answer will always be between 0 and 1. The lesser the answer, the lesser will be the difference between A1 and A2. (For better understanding: as if A1 = A2, our answer will be 0 since F1 will be equal to 0)
 
-#### Jacobi Eigenvalue Theorem
+### Jacobi Eigenvalue Theorem:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is an iterative method to find eigenvalues and eigenvectors of symmetric matrices. It is based on the series of rotations. Here we apply similarity transformations on a matrix such that the given matrix gets converted into a diagonal matrix. Diagonal elements of the final diagonal matrix will be the approximation of eigenvalues of the original given matrix. 
 You can see the detailed description on how to implement the Jacobi Eigenvalue theorem in the report PDF. 
 
-# Approach:
+# Approach
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To perform LSI, we first load and preprocess the text data. We remove all punctuations from it and store it in a python list. Then we tokenized each string in this list. After that, we found unique words in each string and stored all of these words in  a wordset. This wordset is a set of unique words of all documents. 
 
 Now, we will find the frequency of all words in each document one by one. We measured term frequency by *(count of word)/(total words in respective document)* for all the documents. After that, we stored the **IDF** ([Inverse Document Frequency](https://www.geeksforgeeks.org/tf-idf-model-for-page-ranking/)) value of all words.
